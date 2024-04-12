@@ -14,3 +14,10 @@ remove :: Int -> [a] -> [a]
 remove 0 xs = xs 
 remove _ [] = []
 remove n (_:xs) = remove (n-1) xs 
+
+qsort :: Ord a => [a] -> [a]
+qsort [] = []
+qsort(x:xs) = qsort min ++ [x] ++ qsort max 
+              where 
+                min = [a | a <- xs, a<=x] 
+                max = [b | b <-xs, b>x]
